@@ -45,4 +45,3 @@ class MyModule(minitorch.Module):
 
     G.graph["graph"] = {"rankdir": "TB"}
     st.graphviz_chart(nx.nx_pydot.to_pydot(G).to_string())
-    
