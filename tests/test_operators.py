@@ -145,7 +145,7 @@ def test_distribute() -> None:
     a = small_floats.example()
     b = small_floats.example()
     c = small_floats.example()
-    assert mul(c, add(a, b)) == add(mul(c, a), mul(c, b))
+    assert is_close(mul(c, add(a, b)), add(mul(c, a), mul(c, b)))
 
 
 @pytest.mark.task0_2
