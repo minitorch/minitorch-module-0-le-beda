@@ -7,9 +7,9 @@ Inital dataset
 
 <img src="graphs/initial.png" width="30%">
 
-Classified dataset (lr: 0.05, epochs: 1000)
+Classified dataset (Parameter: linear.weight_0_0: -10,  linear.weight_1_0: 0.04, linear.bias_0: 4.76)
 
-<img src="graphs/lr005_epochs1000.png" width="30%">
+<img src="graphs/classified.png" width="30%">
 
 * Docs: https://minitorch.github.io/
 
