@@ -3,6 +3,14 @@
 
 <img src="https://minitorch.github.io/minitorch.svg" width="50%">
 
+Inital dataset
+
+<img src="graphs/initial.png" width="30%">
+
+Classified dataset (lr: 0.05, epochs: 1000)
+
+<img src="graphs/lr005_epochs1000.png" width="30%">
+
 * Docs: https://minitorch.github.io/
 
 * Overview: https://minitorch.github.io/module0/module0/

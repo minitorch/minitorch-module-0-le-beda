@@ -84,4 +84,4 @@ if __name__ == "__main__":
     PTS = 250
     HIDDEN = 10
     RATE = 0.5
-    TorchTrain(HIDDEN).train(minitorch.datasets["Xor"](PTS), RATE)
+    TorchTrain(HIDDEN).train(minitorch.datasets["Simple"](PTS), RATE)
