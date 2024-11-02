@@ -23,6 +23,7 @@ from minitorch.operators import (
     relu,
     relu_back,
     sigmoid,
+    is_close,
 )
 
 from .strategies import assert_close, small_floats
@@ -108,7 +109,11 @@ def test_sigmoid(a: float) -> None:
     * It is  strictly increasing.
     """
     # TODO: Implement for Task 0.2.
-    raise NotImplementedError("Need to implement for Task 0.2")
+    assert lt(0.0, sigmoid(a)) or sigmoid(a) == 0.0
+    assert lt(sigmoid(a), 1.0) or sigmoid(a) == 1.0
+    assert is_close(1 - sigmoid(a), sigmoid(-a))
+    assert is_close(sigmoid(0), 0.5)
+    assert lt(sigmoid(a), sigmoid(a + 1)) or sigmoid(a) == 1.0 or sigmoid(a) == 0.0
 
 
 @pytest.mark.task0_2
@@ -116,7 +121,8 @@ def test_sigmoid(a: float) -> None:
 def test_transitive(a: float, b: float, c: float) -> None:
     """Test the transitive property of less-than (a < b and b < c implies a < c)"""
     # TODO: Implement for Task 0.2.
-    raise NotImplementedError("Need to implement for Task 0.2")
+    if lt(a, b) and lt(b, c):
+        assert lt(a, c)
 
 
 @pytest.mark.task0_2
@@ -125,7 +131,9 @@ def test_symmetric() -> None:
     gives the same value regardless of the order of its input.
     """
     # TODO: Implement for Task 0.2.
-    raise NotImplementedError("Need to implement for Task 0.2")
+    a = small_floats.example()
+    b = small_floats.example()
+    assert mul(a, b) == mul(b, a)
 
 
 @pytest.mark.task0_2
@@ -134,14 +142,19 @@ def test_distribute() -> None:
     :math:`z \times (x + y) = z \times x + z \times y`
     """
     # TODO: Implement for Task 0.2.
-    raise NotImplementedError("Need to implement for Task 0.2")
+    a = small_floats.example()
+    b = small_floats.example()
+    c = small_floats.example()
+    assert is_close(mul(c, add(a, b)), add(mul(c, a), mul(c, b)))
 
 
 @pytest.mark.task0_2
 def test_other() -> None:
     """Write a test that ensures some other property holds for your functions."""
     # TODO: Implement for Task 0.2.
-    raise NotImplementedError("Need to implement for Task 0.2")
+    a = small_floats.example()
+    b = small_floats.example()
+    assert add(a, b) == add(b, a)
 
 
 # ## Task 0.3  - Higher-order functions
@@ -169,7 +182,15 @@ def test_sum_distribute(ls1: List[float], ls2: List[float]) -> None:
     is the same as the sum of each element of `ls1` plus each element of `ls2`.
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+    ret = sum(ls1) + sum(ls2)
+
+    for x in ls1:
+        ret -= x
+
+    for x in ls2:
+        ret -= x
+
+    assert is_close(ret, 0)
 
 
 @pytest.mark.task0_3
