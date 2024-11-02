@@ -73,6 +73,7 @@ def circle(N):
 
 def spiral(N):
     """True on spiral"""
+
     def x(t):
         return t * math.cos(t) / 20.0
 

@@ -160,12 +160,13 @@ def reduce(fn: Callable[[float, float], float], ls: Iterable[float]) -> float:
     """Higher-order function that reduces an iterable to a single value using a given function"""
     if len(ls) == 0:
         return 0
-    
+
     ls = iter(ls)
     ret = next(ls)
     for x in ls:
         ret = fn(ret, x)
     return ret
+
 
 def negList(ls: Iterable[float]) -> Iterable[float]:
     """Negate all elements in a list using"""
