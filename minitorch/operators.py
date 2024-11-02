@@ -158,7 +158,7 @@ def zipWith(
 
 def reduce(fn: Callable[[float, float], float], ls: Iterable[float]) -> float:
     """Higher-order function that reduces an iterable to a single value using a given function"""
-    if len(ls) == 0:
+    if ls == []:
         return 0
 
     ls = iter(ls)
